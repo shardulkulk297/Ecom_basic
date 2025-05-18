@@ -57,7 +57,13 @@ public class Product {
     }
     @Override
     public String toString() {
-        return title;
+        return "Product {" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", category=" + (category != null ? category.getName() : "None") +
+                '}';
     }
 
 }
