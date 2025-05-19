@@ -1,32 +1,28 @@
 package model;
 
-public class Customer {
+public class Vendor {
 
     private int id;
     private String name;
     private String city;
     private User user;
 
-    public Customer() {
+    public Vendor() {
     }
-
-    public Customer(int id, String name, String city, User user) {
+    public Vendor(int id, String name, String city,  User user) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.user = user;
     }
-
-    public Customer(String name, String city, User user) {
+    public Vendor(String name, String city, User user) {
         this.name = name;
         this.city = city;
         this.user = user;
     }
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }

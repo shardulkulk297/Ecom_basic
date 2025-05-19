@@ -9,5 +9,6 @@ public interface ProductDao {
     public void insertProduct(Product product, int categoryId);
     public List<Product> getProductsByCategory(int categoryId);
     public Product getProductById(int productId);
+    public List<Product> getAllProducts();
 
 }

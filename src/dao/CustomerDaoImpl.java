@@ -2,6 +2,7 @@ package dao;
 
 import exception.InvalidIdException;
 import model.Customer;
+import model.User;
 import util.DBConnection;
 
 import java.sql.Connection;
@@ -45,6 +46,30 @@ public class CustomerDaoImpl implements CustomerDao {
         }
 
         return null;
+    }
+    @Override
+    public void insertCustomer(Customer customer){
+
+        try{
+            Connection con = dbConnection.getConnection();
+            String sql = "INSERT INTO customer (name, city) VALUES (?, ?)";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, customer.getName());
+            stmt.setString(2, customer.getCity());
+
+            int rowsAdded = stmt.executeUpdate();
+            if(rowsAdded > 0){
+                System.out.println("Customer Added Successfully");
+            }
+            else{
+                System.out.println("Customer Not Added");
+            }
+        }
+        catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+
     }
 
 }

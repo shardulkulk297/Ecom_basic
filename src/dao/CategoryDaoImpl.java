@@ -2,6 +2,7 @@ package dao;
 
 import exception.InvalidIdException;
 import model.Category;
+import model.Customer;
 import util.DBConnection;
 
 import java.sql.Connection;
@@ -44,5 +45,7 @@ public class CategoryDaoImpl implements CategoryDao {
         return null;
 
     }
+
+
 
 }
