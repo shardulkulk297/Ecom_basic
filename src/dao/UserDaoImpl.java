@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class UserDaoImpl implements UserDao {
     DBConnection db = DBConnection.getInstance();
     @Override
-    public void registerUser(User user) {
+    public boolean registerUser(User user) {
 
         try{
 
@@ -27,6 +27,7 @@ public class UserDaoImpl implements UserDao {
             int rowsAdded = stmt.executeUpdate();
             if(rowsAdded > 0){
                 System.out.println("User Registered Successfully");
+                return true;
             }
             else{
                 System.out.println("Something went wrong");
@@ -38,6 +39,8 @@ public class UserDaoImpl implements UserDao {
         catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        return false;
     }
     @Override
     public boolean loginUser(String username, String password) {

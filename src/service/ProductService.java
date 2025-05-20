@@ -3,6 +3,7 @@ package service;
 import dao.ProductDao;
 import dao.ProductDaoImpl;
 import exception.InvalidIdException;
+import exception.NullDataException;
 import model.Product;
 
 import java.util.List;
@@ -13,8 +14,7 @@ public class ProductService {
         if (categoryId == 0 || categoryId < 0)
             throw new InvalidIdException("Invalid Category Id");
         if(product ==  null){
-            System.out.println("NULL Product Data");
-            return;
+            throw new NullDataException("Null Data Entered");
         }
 
         ProductDao productDao = new ProductDaoImpl();

@@ -48,7 +48,7 @@ public class CustomerDaoImpl implements CustomerDao {
         return null;
     }
     @Override
-    public void insertCustomer(Customer customer){
+    public boolean insertCustomer(Customer customer){
 
         try{
             Connection con = dbConnection.getConnection();
@@ -60,14 +60,17 @@ public class CustomerDaoImpl implements CustomerDao {
             int rowsAdded = stmt.executeUpdate();
             if(rowsAdded > 0){
                 System.out.println("Customer Added Successfully");
+                return true;
             }
             else{
                 System.out.println("Customer Not Added");
+                return false;
             }
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
         }
+        return false;
 
 
     }

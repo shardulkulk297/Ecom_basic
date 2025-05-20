@@ -8,9 +8,9 @@ import model.User;
 public class UserService {
 
     UserDao userDao = new UserDaoImpl();
-    public void registerUser(User user){
+    public boolean registerUser(User user){
 
-        userDao.registerUser(user);
+       return userDao.registerUser(user);
 
     }
 
@@ -25,5 +25,7 @@ public class UserService {
         }
 
     }
+
+
 
 }
